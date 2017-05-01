@@ -9,7 +9,7 @@ repositories {
 }
 
 dependencies {
-  compile group: 'org.jfl110', name: 'gae-integration-test-support', version:'1.0.0'
+  testCompile group: 'org.jfl110', name: 'gae-integration-test-support', version:'1.0.0'
 }
 ~~~~
 
