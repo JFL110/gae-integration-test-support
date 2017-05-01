@@ -1,0 +1,39 @@
+plugins {
+  id "com.github.kt3k.coveralls" version "2.7.1"
+}
+apply plugin: 'eclipse'
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'org.jfl110'
+version = '1.0.0' 
+description = "gae-integration-test-support"
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+repositories {
+  maven {
+    url 'https://maven-central.storage.googleapis.com'
+  }
+  mavenLocal()
+  jcenter()
+  mavenCentral()
+}
+
+apply plugin: 'jacoco'
+apply plugin: 'com.github.kt3k.coveralls'
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+    }
+}
+
+dependencies {
+
+    testCompile group: 'junit', name: 'junit', version:'4.12'
+}
