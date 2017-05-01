@@ -23,7 +23,6 @@ public class EmbeddedJetty implements TestRule {
 	/**
 	 * Builder to construct the EmbeddedJetty server.
 	 *
-	 *
 	 * @author JFL110
 	 */
 	public static class EmbeddedJettyBuilder{
