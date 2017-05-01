@@ -1,9 +1,4 @@
 language: java
 
-# blocklist
-branches:
-  except:
-  - maven-repo
-
 after_success:
 - ./gradlew jacocoTestReport coveralls
