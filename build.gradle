@@ -37,8 +37,8 @@ dependencies {
 
   compile group: 'junit', name: 'junit', version:'4.12'
 
-  compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.4.0.RC3'
-  compile group: 'org.eclipse.jetty', name: 'jetty-webapp', version: '9.4.0.RC3'
+  compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.3.18.v20170406'
+  compile group: 'org.eclipse.jetty', name: 'jetty-webapp', version: '9.3.18.v20170406'
   
   compile 'com.google.appengine:appengine-testing:1.9.34'
   compile 'com.google.appengine:appengine-api-labs:1.9.34'
