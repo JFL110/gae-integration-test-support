@@ -19,19 +19,18 @@ public class TestIntegrationTesting {
 	public static final DatastoreRule datastoreRule = new DatastoreRule();
 	
 	@ClassRule
-	public static final EmbeddedJetty server = EmbeddedJetty.embeddedJetty()
-												.withContextListener(new TestingApp())
-												.build();
+	public static final EmbeddedJetty server = EmbeddedJetty.embeddedJetty().withContextListener(new TestingApp()).build();
 	
 	private final Client client = ClientBuilder.newClient();
 	
 	@Test
 	public void testPlainTextGet(){
-		String response = client.target(server.getBaseUri())
-								.path("/read-text")
-								.request(MediaType.TEXT_HTML)
-								.get()
-								.readEntity(String.class);
+		String response = 
+				client.target(server.getBaseUri())
+				.path("/read-text")
+				.request(MediaType.TEXT_HTML)
+				.get()
+				.readEntity(String.class);
 		
 		assertNotNull(response);
 		assertEquals("text-response",response);
@@ -40,16 +39,18 @@ public class TestIntegrationTesting {
 	
 	@Test 
 	public void testDatastoreWriteRead(){
-		String writeResponse = client.target(server.getBaseUri())
-								.path("/insert-entities")
-								.request(MediaType.TEXT_HTML)
-								.post(Entity.text(""))
-								.readEntity(String.class);
+		String writeResponse = 
+				client.target(server.getBaseUri())
+				.path("/insert-entities")
+				.request(MediaType.TEXT_HTML)
+				.post(Entity.text(""))
+				.readEntity(String.class);
 		
 		assertNotNull(writeResponse);
 		assertEquals("entities-saved",writeResponse);
 		
-		ClientEntityListResponse readResponse = client.target(server.getBaseUri())
+		ClientEntityListResponse readResponse = 
+				client.target(server.getBaseUri())
 				.path("/read-entities")
 				.request(MediaType.APPLICATION_JSON)
 				.get()

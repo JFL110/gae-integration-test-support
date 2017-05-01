@@ -67,11 +67,12 @@ class TestingApp extends GuiceServletContextListener{
 						resp.setContentType(MediaType.APPLICATION_JSON);
 						 
 						new ObjectMapper().writer().writeValue(resp.getWriter(),
-						new EntityListResponse(ObjectifyService
-														 .ofy()
-														.load()
-														.type(SomeEntity.class)
-														.list()));
+							new EntityListResponse(
+								ObjectifyService
+								.ofy()
+								.load()
+								.type(SomeEntity.class)
+								.list()));
 					 }
 				});
 			}
