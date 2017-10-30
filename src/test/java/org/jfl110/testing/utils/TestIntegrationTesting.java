@@ -10,6 +10,7 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 
+import org.jfl110.quickstart.EmbeddedJetty;
 import org.junit.ClassRule;
 import org.junit.Test;
 
@@ -22,7 +23,7 @@ public class TestIntegrationTesting {
 	public static final EmbeddedJetty server = EmbeddedJetty.embeddedJetty().withContextListener(new TestingApp()).build();
 	
 	private final Client client = ClientBuilder.newClient();
-	
+
 	@Test
 	public void testPlainTextGet(){
 		String response = 
