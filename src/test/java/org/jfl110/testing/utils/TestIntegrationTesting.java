@@ -11,8 +11,6 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 
 import org.jfl110.quickstart.EmbeddedJetty;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
 
@@ -20,19 +18,10 @@ public class TestIntegrationTesting {
 	
 	@ClassRule
 	public static final DatastoreRule datastoreRule = new DatastoreRule();
+	@ClassRule
 	public static final EmbeddedJetty server = EmbeddedJetty.embeddedJetty().withContextListener(new TestingApp()).build();
 	
 	private final Client client = ClientBuilder.newClient();
-
-	@BeforeClass
-	public static void beforeClass() throws Exception {
-		server.start();
-	}
-
-	@AfterClass
-	public static void afterClass() throws Exception {
-		server.stop();
-	}
 	
 	@Test
 	public void testPlainTextGet(){
