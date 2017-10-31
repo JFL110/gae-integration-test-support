@@ -22,9 +22,6 @@ repositories {
   mavenLocal()
   jcenter()
   mavenCentral()
-  maven {
-   url 'https://github.com/JFL110/resteasy-guice-quickstart/raw/maven-repo'
-  }
 }
 
 apply plugin: 'jacoco'
@@ -51,10 +48,8 @@ dependencies {
   compile 'com.google.appengine:appengine-endpoints-deps:1.9.34'
   
   compile group: 'com.google.inject.extensions', name: 'guice-servlet', version: '3.0'
-  
-  testCompile group: 'org.jfl110', name: 'resteasy-guice-quickstart', version:'1.0-SNAPSHOT' 
+
   testCompile group: 'org.glassfish.jersey.core', name: 'jersey-client', version: '2.26-b03'
   testCompile group: 'org.glassfish.jersey.media', name: 'jersey-media-json-jackson', version: '2.25'
-  
   testCompile group: 'com.googlecode.objectify', name: 'objectify', version:'5.1.13'
 }
