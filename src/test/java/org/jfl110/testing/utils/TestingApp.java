@@ -72,7 +72,8 @@ class TestingApp extends GuiceServletContextListener {
 
 
 	public static class EntityListResponse {
-		public List<SomeEntity> entities;
+	
+		public final List<SomeEntity> entities;
 
 		EntityListResponse(List<SomeEntity> entities) {
 			this.entities = entities;
