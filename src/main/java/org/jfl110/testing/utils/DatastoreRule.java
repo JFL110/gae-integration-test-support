@@ -38,17 +38,14 @@ public class DatastoreRule implements TestRule {
 	 * Warning, might have unexpected results
 	 */
 	private void syncDatastoreThreads() {
-		final ApiProxy.Environment testEnv = ApiProxy.getCurrentEnvironment();
 		try {
-			ApiProxy.setEnvironmentFactory(new ApiProxy.EnvironmentFactory() {
-				@Override
-				public ApiProxy.Environment newEnvironment() {
-					return testEnv;
-				}
-			});
+			ApiProxy.setEnvironmentFactory(() -> ApiProxy.getCurrentEnvironment());
 		} catch (IllegalStateException e) {}
 	}
 
+	/**
+	 * Provides access to the {@link LocalServiceTestHelper}
+	 */
 	public LocalServiceTestHelper helper() {
 		return helper;
 	}
