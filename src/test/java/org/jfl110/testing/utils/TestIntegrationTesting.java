@@ -18,7 +18,10 @@ public class TestIntegrationTesting {
 	@ClassRule
 	public static final DatastoreRule datastoreRule = new DatastoreRule();
 	@ClassRule
-	public static final EmbeddedJetty server = EmbeddedJetty.embeddedJetty().withContextListener(new TestingApp()).build();
+	public static final EmbeddedJetty server = EmbeddedJetty.embeddedJetty()
+												.withContextListener(new TestingApp())
+												.withResourceBasePath("/src/test/")
+												.build();
 	
 	private final Client client = ClientBuilder.newClient();
 	
@@ -33,6 +36,20 @@ public class TestIntegrationTesting {
 		
 		assertNotNull(response);
 		assertEquals("text-response",response);
+	}
+	
+	
+	@Test
+	public void testGetStaticFile(){
+		String response = 
+				client.target(server.getBaseUri())
+				.path("/static-file.txt")
+				.request(MediaType.TEXT_HTML)
+				.get()
+				.readEntity(String.class);
+		
+		assertNotNull(response);
+		assertEquals("Some static file text",response);
 	}
 	
 	
@@ -74,5 +91,4 @@ public class TestIntegrationTesting {
 		public long id;
 		public String name;
 	}
-	
 }

@@ -6,7 +6,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 
 group = 'org.jfl110'
-version = '1.0.0' 
+version = '1.0-SNAPSHOT' 
 description = "gae-integration-test-support"
 
 sourceCompatibility = 1.8
