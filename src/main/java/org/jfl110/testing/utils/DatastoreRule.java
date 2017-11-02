@@ -9,8 +9,8 @@ import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
 import com.google.apphosting.api.ApiProxy;
 
 /**
- * Testing rule to provide access to the GAE DataStore.
- * Supports multithread environments but the results are not guaranteed.
+ * Testing rule to provide access to the GAE DataStore. Supports multithread
+ * environments but the results are not guaranteed.
  *
  * @author JFL110
  */
@@ -33,23 +33,23 @@ public class DatastoreRule implements TestRule {
 			}
 		};
 	}
-	
-	
+
 	/**
 	 * Warning, might have unexpected results
 	 */
-	private void syncDatastoreThreads(){
+	private void syncDatastoreThreads() {
 		final ApiProxy.Environment testEnv = ApiProxy.getCurrentEnvironment();
-		try{
+		try {
 			ApiProxy.setEnvironmentFactory(new ApiProxy.EnvironmentFactory() {
-			  @Override
-			  public ApiProxy.Environment newEnvironment() { return testEnv; }
+				@Override
+				public ApiProxy.Environment newEnvironment() {
+					return testEnv;
+				}
 			});
-		}catch(IllegalStateException e){}
+		} catch (IllegalStateException e) {}
 	}
-	
-	
-	public LocalServiceTestHelper helper(){
+
+	public LocalServiceTestHelper helper() {
 		return helper;
 	}
 }

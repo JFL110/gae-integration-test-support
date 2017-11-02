@@ -30,19 +30,18 @@ public class EmbeddedJetty implements TestRule {
 	 */
 	public static class EmbeddedJettyBuilder {
 
-		private ServletContextListener contextListener;
-		private final int port = 8080;
-		private String resourceBasePath = "src/main/webapp";
+		private ServletContextListener	contextListener;
+		private final int								port							= 8080;
+		private String									resourceBasePath	= "src/main/webapp";
 
-		private EmbeddedJettyBuilder() {
-		}
+		private EmbeddedJettyBuilder() {}
 
 		public EmbeddedJettyBuilder withContextListener(ServletContextListener contextListener) {
 			this.contextListener = contextListener;
 			return this;
 		}
-		
-		public EmbeddedJettyBuilder withResourceBasePath(String resourceBasePath){
+
+		public EmbeddedJettyBuilder withResourceBasePath(String resourceBasePath) {
 			this.resourceBasePath = resourceBasePath;
 			return this;
 		}
@@ -53,11 +52,11 @@ public class EmbeddedJetty implements TestRule {
 
 	}
 
-	private final int port;
-	private final String resourceBasePath;
-	private final ServletContextListener contextListener;
+	private final int											port;
+	private final String									resourceBasePath;
+	private final ServletContextListener	contextListener;
 
-	private Server server;
+	private Server												server;
 
 	public static EmbeddedJettyBuilder embeddedJetty() {
 		return new EmbeddedJettyBuilder();
@@ -87,8 +86,7 @@ public class EmbeddedJetty implements TestRule {
 		ServletContextHandler context = new ServletContextHandler();
 		context.setResourceBase(resourceBasePath);
 		context.addEventListener(contextListener);
-		context.addFilter(GuiceFilter.class, "/*",
-				EnumSet.of(javax.servlet.DispatcherType.REQUEST, javax.servlet.DispatcherType.ASYNC));
+		context.addFilter(GuiceFilter.class, "/*", EnumSet.of(javax.servlet.DispatcherType.REQUEST, javax.servlet.DispatcherType.ASYNC));
 
 		ResourceHandler resourceHandler = new ResourceHandler();
 		resourceHandler.setDirectoriesListed(true);
