@@ -13,7 +13,7 @@ import javax.ws.rs.core.MediaType;
 import org.junit.ClassRule;
 import org.junit.Test;
 
-public class TestIntegrationTesting {
+public class TestIntegration {
 
 	@ClassRule
 	public static final DatastoreRule	datastoreRule	= new DatastoreRule();
