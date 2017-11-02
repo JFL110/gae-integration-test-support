@@ -36,20 +36,28 @@ public class EmbeddedJetty implements TestRule {
 
 		private EmbeddedJettyBuilder() {}
 
+		/**
+		 * Sets the ServletContextListener
+		 */
 		public EmbeddedJettyBuilder withContextListener(ServletContextListener contextListener) {
 			this.contextListener = contextListener;
 			return this;
 		}
 
+		/**
+		 * Sets the path to be used for static resources and resources accessed via the ServletContext.
+		 */
 		public EmbeddedJettyBuilder withResourceBasePath(String resourceBasePath) {
 			this.resourceBasePath = resourceBasePath;
 			return this;
 		}
 
+		/**
+		 * Builds the server.
+		 */
 		public EmbeddedJetty build() {
 			return new EmbeddedJetty(port, resourceBasePath, contextListener);
 		}
-
 	}
 
 	private final int											port;
