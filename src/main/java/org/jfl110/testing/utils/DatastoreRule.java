@@ -10,7 +10,7 @@ import com.google.apphosting.api.ApiProxy;
 
 /**
  * Testing rule to provide access to the GAE DataStore. Supports multithread
- * environments but the results are not guaranteed.
+ * environments but in a bit of hacky way.
  *
  * @author JFL110
  */
