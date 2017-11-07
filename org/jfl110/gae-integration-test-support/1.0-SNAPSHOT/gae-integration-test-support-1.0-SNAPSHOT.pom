@@ -27,37 +27,37 @@
     <dependency>
       <groupId>com.google.appengine</groupId>
       <artifactId>appengine-testing</artifactId>
-      <version>1.9.34</version>
+      <version>1.9.58</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>com.google.appengine</groupId>
       <artifactId>appengine-api-labs</artifactId>
-      <version>1.9.34</version>
+      <version>1.9.58</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>com.google.appengine</groupId>
       <artifactId>appengine-api-stubs</artifactId>
-      <version>1.9.34</version>
+      <version>1.9.58</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>com.google.appengine</groupId>
       <artifactId>appengine-tools-sdk</artifactId>
-      <version>1.9.34</version>
+      <version>1.9.58</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>com.google.appengine</groupId>
       <artifactId>appengine-endpoints</artifactId>
-      <version>1.9.34</version>
+      <version>1.9.58</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>com.google.appengine</groupId>
       <artifactId>appengine-endpoints-deps</artifactId>
-      <version>1.9.34</version>
+      <version>1.9.58</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
