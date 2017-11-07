@@ -30,9 +30,9 @@ public class EmbeddedJetty implements TestRule {
 	 */
 	public static class EmbeddedJettyBuilder {
 
-		private ServletContextListener	contextListener;
-		private final int								port							= 8080;
-		private String									resourceBasePath	= "src/main/webapp";
+		private ServletContextListener contextListener;
+		private final int port = 8080;
+		private String resourceBasePath	= "src/main/webapp";
 
 		private EmbeddedJettyBuilder() {}
 
@@ -60,11 +60,11 @@ public class EmbeddedJetty implements TestRule {
 		}
 	}
 
-	private final int											port;
-	private final String									resourceBasePath;
-	private final ServletContextListener	contextListener;
+	private final int port;
+	private final String resourceBasePath;
+	private final ServletContextListener contextListener;
 
-	private Server												server;
+	private Server	server;
 
 	public static EmbeddedJettyBuilder embeddedJetty() {
 		return new EmbeddedJettyBuilder();
@@ -83,9 +83,6 @@ public class EmbeddedJetty implements TestRule {
 
 	/**
 	 * Starts the server.
-	 */
-	/**
-	 * @throws Exception
 	 */
 	public void start() throws Exception {
 

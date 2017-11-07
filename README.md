@@ -1,6 +1,6 @@
 ## GAE Integration Test Support
 
-[![Build Status](https://travis-ci.org/JFL110/gae-integration-test-support.svg?branch=master)](https://travis-ci.org/JFL110/gae-integration-test-support) [![Coverage Status](https://coveralls.io/repos/github/JFL110/gae-integration-test-support/badge.svg?branch=master)](https://coveralls.io/github/JFL110/gae-integration-test-support?branch=master)
+[![Build Status](https://travis-ci.org/JFL110/gae-integration-test-support.svg?branch=master)](https://travis-ci.org/JFL110/gae-integration-test-support) [![Coverage Status](https://coveralls.io/repos/github/JFL110/gae-integration-test-support/badge.svg?branch=master)](https://coveralls.io/github/JFL110/gae-integration-test-support?branch=master) [![A weather badge for the home of this repo](https://grrbadge.com/img/location-weather/London_UK.svg)](https://github.com/JFL110/grrbadge)
 
 Testing utilities for java web apps that use:
 - Guice servlet
