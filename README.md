@@ -10,4 +10,4 @@ Provides facilities to:
 - Launch an embedded Jetty server which is configured via a ServletContextListener.
 - Launch a testing datastore service with multithreading support
 
-An example usage is provided in the [tests](https://github.com/JFL110/gae-integration-test-support/blob/master/src/test/java/org/jfl110/testing/utils/TestIntegrationTesting.java).
+An example usage is provided in the [tests](https://github.com/JFL110/gae-integration-test-support/blob/master/src/test/java/org/jfl110/testing/utils/TestIntegration.java).
