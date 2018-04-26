@@ -33,9 +33,14 @@ jacocoTestReport {
     }
 }
 
+ jar {
+     from sourceSets.main.allSource
+ }
+
 dependencies {
 
   compile group: 'junit', name: 'junit', version:'4.12'
+  compile group: 'com.google.guava', name: 'guava', version: '20.0'
 
   compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.3.18.v20170406'
   compile group: 'org.eclipse.jetty', name: 'jetty-webapp', version: '9.3.18.v20170406'
