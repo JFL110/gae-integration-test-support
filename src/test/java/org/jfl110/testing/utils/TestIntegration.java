@@ -15,52 +15,40 @@ import org.junit.Test;
 
 public class TestIntegration {
 
-	@ClassRule
-	public static final DatastoreRule	datastoreRule	= new DatastoreRule();
-	@ClassRule
-	public static final EmbeddedJetty	server				= EmbeddedJetty.embeddedJetty()
-																										.withContextListener(new TestingApp())
-																										.withResourceBasePath("/src/test/").build();
+	@ClassRule public static final DatastoreRule datastoreRule = new DatastoreRule();
+	@ClassRule public static final EmbeddedJetty server = EmbeddedJetty.embeddedJetty().withContextListener(new TestingApp())
+			.withResourceBasePath("/src/test/").build();
 
-	private final Client							client				= ClientBuilder.newClient();
+	private final Client client = ClientBuilder.newClient();
+
 
 	@Test
 	public void testPlainTextGet() {
-		String response = client
-				.target(server.getBaseUri())
-				.path("/read-text")
-				.request(MediaType.TEXT_HTML).get()
-				.readEntity(String.class);
+		String response = client.target(server.getBaseUri()).path("/read-text").request(MediaType.TEXT_HTML).get().readEntity(String.class);
 
 		assertNotNull(response);
 		assertEquals("text-response", response);
 	}
 
+
 	@Test
 	public void testGetStaticFile() {
-		String response = client.target(server.getBaseUri())
-				.path("/static-file.txt")
-				.request(MediaType.TEXT_HTML).get()
-				.readEntity(String.class);
+		String response = client.target(server.getBaseUri()).path("/static-file.txt").request(MediaType.TEXT_HTML).get().readEntity(String.class);
 
 		assertNotNull(response);
 		assertEquals("Some static file text", response);
 	}
 
+
 	@Test
 	public void testDatastoreWriteRead() {
-		String writeResponse = client.target(server.getBaseUri())
-				.path("/insert-entities")
-				.request(MediaType.TEXT_HTML)
-				.post(Entity.text(""))
+		String writeResponse = client.target(server.getBaseUri()).path("/insert-entities").request(MediaType.TEXT_HTML).post(Entity.text(""))
 				.readEntity(String.class);
 
 		assertNotNull(writeResponse);
 		assertEquals("entities-saved", writeResponse);
 
-		ClientEntityListResponse readResponse = client.target(server.getBaseUri())
-				.path("/read-entities")
-				.request(MediaType.APPLICATION_JSON).get()
+		ClientEntityListResponse readResponse = client.target(server.getBaseUri()).path("/read-entities").request(MediaType.APPLICATION_JSON).get()
 				.readEntity(ClientEntityListResponse.class);
 
 		assertNotNull(readResponse);
@@ -72,14 +60,12 @@ public class TestIntegration {
 		assertEquals("entity-three", readResponse.entities.get(2).name);
 	}
 
-
 	static class ClientEntityListResponse {
 		public List<ClientEntity> entities;
 	}
 
-
 	static class ClientEntity {
-		public long		id;
-		public String	name;
+		public long id;
+		public String name;
 	}
 }
